@@ -9,7 +9,7 @@ type DataIndex struct {
 	Format string      `json:"format"`
 }
 
-func cred(next http.Handler) http.Handler {
+func Cred(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Access-Control-Allow-Credentials", "true")
 		w.Header().Set("Access-Control-Allow-Headers", "Authorization")

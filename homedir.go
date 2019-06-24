@@ -1,3 +1,5 @@
+package nbdata
+
 import (
 	"os"
 	"runtime"
@@ -13,4 +15,3 @@ func UserHomeDir() string {
 	}
 	return os.Getenv("HOME")
 }
-

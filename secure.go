@@ -12,12 +12,15 @@ var password string
 
 var cache map[string]bool
 
-func initCache() {
+func InitCache(pw string) {
+	password = pw
 	cache = make(map[string]bool)
 }
 
 var sessionTime = 24 * 60 * 60 * time.Second
 
+func SetPassword(pw string) {
+}
 func Signin(w http.ResponseWriter, r *http.Request) {
 	/*
 		u, ok1 := r.URL.Query()["user"]
@@ -28,11 +31,11 @@ func Signin(w http.ResponseWriter, r *http.Request) {
 	*/
 	p, ok2 := r.URL.Query()["password"]
 	if !ok2 {
-		w.Write([]byte(fmt.Sprintf("{'Error':'No User Password Found'}")))
+		w.Write([]byte(fmt.Sprintf("{'Error':'No User password Found'}")))
 		return
 	}
 	if p[0] != password {
-		w.Write([]byte(fmt.Sprintf("{'Error':'Wrong Password'}")))
+		w.Write([]byte(fmt.Sprintf("{'Error':'Wrong password'}")))
 		return
 
 	}
@@ -84,8 +87,7 @@ func noSecure(url string) bool {
 	_, ok := noSecureMap[url]
 	return ok
 }
-
-func secureMiddleware(next http.Handler) http.Handler {
+func SecureMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if noSecure(r.URL.Path) {
 			next.ServeHTTP(w, r)
@@ -115,7 +117,7 @@ func secureMiddleware(next http.Handler) http.Handler {
 		next.ServeHTTP(w, r)
 	})
 }
-func mainHtml(w http.ResponseWriter, r *http.Request) {
+func MainHtml(w http.ResponseWriter, r *http.Request) {
 	s := `
 	<html>
 	<head>
@@ -123,7 +125,7 @@ func mainHtml(w http.ResponseWriter, r *http.Request) {
 	<body>
 	<h3>CMU Nucleome Data Server </h3>
 	<form action="signin">
-  Password:<br>
+  password:<br>
   <input type="text" name="password">
   <br>
   <input type="submit" value="Submit">

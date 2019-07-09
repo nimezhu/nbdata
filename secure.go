@@ -39,8 +39,6 @@ func Signin(w http.ResponseWriter, r *http.Request) {
 		return
 
 	}
-
-	//Check User Status
 	uNew, _ := uuid.NewV4()
 	sessionToken := uNew.String()
 	cache[sessionToken] = true
@@ -106,12 +104,12 @@ func SecureMiddleware(next http.Handler) http.Handler {
 
 		response, ok := cache[sessionToken]
 		if !ok {
-			w.Write([]byte(fmt.Sprintf("No Session")))
+			w.Write([]byte(fmt.Sprintf("Not Login")))
 			return
 		}
 
 		if !response {
-			w.Write([]byte(fmt.Sprintf("No Reps")))
+			w.Write([]byte(fmt.Sprintf("No Data")))
 			return
 		}
 		next.ServeHTTP(w, r)
@@ -123,7 +121,7 @@ func MainHtml(w http.ResponseWriter, r *http.Request) {
 	<head>
 	</head>
 	<body>
-	<h3>CMU Nucleome Data Server </h3>
+	<h3>Nucle Server </h3>
 	<form action="signin">
   password:<br>
   <input type="text" name="password">

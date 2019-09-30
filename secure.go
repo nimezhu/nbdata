@@ -39,7 +39,7 @@ func Signin(w http.ResponseWriter, r *http.Request) {
 		return
 
 	}
-	uNew := uuid.NewV4()
+	uNew, _ := uuid.NewV4()
 	sessionToken := uNew.String()
 	cache[sessionToken] = true
 	http.SetCookie(w, &http.Cookie{

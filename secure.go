@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/satori/go.uuid"
+	"github.com/nimezhu/go.uuid"
 )
 
 var password string

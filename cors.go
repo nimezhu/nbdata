@@ -35,7 +35,7 @@ var (
 		"chrome-extension://gedcoafficobgcagmjpplpnmempkcpfp",
 		"https://youdata.studio",
 		"https://youdata.github.io",
-		"https://vomics.github.io"
+		"https://vomics.github.io",
 	}
 )
 

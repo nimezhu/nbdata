@@ -10,6 +10,8 @@ var (
 	CORS = []string{
 		"https://vis.nucleome.org",
 		"http://vis.nucleome.org",
+		"https://viz.nucleome.org",
+		"http://viz.nucleome.org",
 		"https://browser.nucleome.org",
 		"http://browser.nucleome.org",
 		"https://v.nucleome.org",
@@ -31,7 +33,9 @@ var (
 		"https://dev.nucleome.org",
 		"http://dev.nucleome.org",
 		"chrome-extension://gedcoafficobgcagmjpplpnmempkcpfp",
-		"https://vbio.app",
+		"https://youdata.studio",
+		"https://youdata.github.io",
+		"https://vomics.github.io"
 	}
 )
 

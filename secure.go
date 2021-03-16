@@ -91,6 +91,7 @@ func SecureMiddleware(next http.Handler) http.Handler {
 			next.ServeHTTP(w, r)
 			return
 		}
+		//TODO Check Difference Request ...
 		c, err := r.Cookie("session_token")
 		if err != nil {
 			if err == http.ErrNoCookie {

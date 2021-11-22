@@ -36,6 +36,8 @@ var (
 		"https://youdata.studio",
 		"https://youdata.github.io",
 		"https://vomics.github.io",
+		"https://cellcycle.org",
+		"https://www.cellcycle.org",
 	}
 )
 
